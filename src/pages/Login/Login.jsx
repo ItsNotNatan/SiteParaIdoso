@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Truck, Mail, Lock, LogIn } from 'lucide-react';
+import { HeartPulse, Mail, Lock, LogIn } from 'lucide-react';
 import './Login.css';
 
 export default function Login() {
@@ -8,17 +8,16 @@ export default function Login() {
     const [senha, setSenha] = useState('');
     const [carregando, setCarregando] = useState(false);
 
-    // Hook do React Router para redirecionar o utilizador após o login
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setCarregando(true);
 
-        // Simulação de chamada à API de autenticação
+        // Simulação de autenticação
         setTimeout(() => {
             setCarregando(false);
-            // Após o login com sucesso, envia para o dashboard ou formulário
+            // Direciona para a primeira tela pós-login (pode ajustar a rota futuramente)
             navigate('/formulario');
         }, 1500);
     };
@@ -29,34 +28,34 @@ export default function Login() {
 
                 <div className="login-header">
                     <div className="logo-container justify-center">
-                        <Truck className="text-primary" size={40} />
+                        <HeartPulse className="text-primary" size={48} strokeWidth={2.5} />
                     </div>
                     <h1 className="login-title">
-                        Nexus<span className="text-primary">Log</span>
+                        Ativ <span className="text-primary">Idade</span>
                     </h1>
-                    <p className="login-subtitle">Acesso ao sistema de gestão</p>
+                    <p className="login-subtitle">Bem-vindo(a) ao seu espaço de saúde e movimento!</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="login-form">
                     <div className="input-group">
-                        <label>E-mail</label>
+                        <label>Qual é o seu E-mail?</label>
                         <div className="input-with-icon">
-                            <Mail size={18} className="input-icon" />
+                            <Mail size={22} className="input-icon" />
                             <input
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                placeholder="seu@email.com"
+                                placeholder="exemplo@email.com"
                                 className="input-control"
                             />
                         </div>
                     </div>
 
                     <div className="input-group">
-                        <label>Palavra-passe</label>
+                        <label>Sua Senha</label>
                         <div className="input-with-icon">
-                            <Lock size={18} className="input-icon" />
+                            <Lock size={22} className="input-icon" />
                             <input
                                 type="password"
                                 value={senha}
@@ -75,7 +74,7 @@ export default function Login() {
                     >
                         {carregando ? 'A entrar...' : (
                             <>
-                                <LogIn size={18} /> Entrar
+                                <LogIn size={22} /> Entrar no sistema
                             </>
                         )}
                     </button>
