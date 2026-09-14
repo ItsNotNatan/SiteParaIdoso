@@ -17,15 +17,14 @@ export default function Login() {
         // Simulação de autenticação
         setTimeout(() => {
             setCarregando(false);
-            // Direciona para a primeira tela pós-login (pode ajustar a rota futuramente)
-            navigate('/formulario');
+            // Direciona para o Dashboard após o login
+            navigate('/dashboard');
         }, 1500);
     };
 
     return (
         <div className="login-container">
             <div className="login-card fade-in">
-
                 <div className="login-header">
                     <div className="logo-container justify-center">
                         <HeartPulse className="text-primary" size={48} strokeWidth={2.5} />
@@ -79,7 +78,6 @@ export default function Login() {
                         )}
                     </button>
                 </form>
-
             </div>
         </div>
     );
