@@ -1,8 +1,12 @@
 import React from 'react';
 import { Sun, PlayCircle, Activity, Award, CheckCircle2 } from 'lucide-react';
 import './Dashboard.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
+    // Inicializa o hook de navegação
+    const navigate = useNavigate();
+
     return (
         <div className="dashboard-container fade-in">
 
@@ -45,7 +49,8 @@ export default function Dashboard() {
                     <h2 className="daily-title">Alongamento Matinal Suave</h2>
                     <p className="daily-desc">10 minutos para soltar as articulações e começar bem o dia. Pode ser feito sentado.</p>
 
-                    <button className="btn-start">
+                    {/* AQUI ESTÁ O BOTÃO COM A NAVEGAÇÃO FUNCIONANDO */}
+                    <button onClick={() => navigate('/exercicio')} className="btn-start">
                         <PlayCircle size={24} />
                         Começar Exercício
                     </button>
