@@ -14,17 +14,16 @@ export default function Login() {
         e.preventDefault();
         setCarregando(true);
 
-        // Simulação de autenticação
         setTimeout(() => {
             setCarregando(false);
-            // Direciona para o Dashboard após o login
             navigate('/dashboard');
-        }, 1500);
+        }, 1000); // Reduzi o tempo para 1 segundo para ser mais rápido na prototipação
     };
 
     return (
         <div className="login-container">
             <div className="login-card fade-in">
+
                 <div className="login-header">
                     <div className="logo-container justify-center">
                         <HeartPulse className="text-primary" size={48} strokeWidth={2.5} />
@@ -44,7 +43,6 @@ export default function Login() {
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                required
                                 placeholder="exemplo@email.com"
                                 className="input-control"
                             />
@@ -59,7 +57,6 @@ export default function Login() {
                                 type="password"
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
-                                required
                                 placeholder="••••••••"
                                 className="input-control"
                             />
@@ -78,6 +75,14 @@ export default function Login() {
                         )}
                     </button>
                 </form>
+
+                <div className="toggle-mode">
+                    <p>Ainda não tem uma conta?</p>
+                    <button type="button" onClick={() => navigate('/cadastro')} className="btn-toggle">
+                        Criar minha conta
+                    </button>
+                </div>
+
             </div>
         </div>
     );

@@ -3,8 +3,9 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 
 import Layout from '../components/Layout/Layout';
 import Login from '../pages/Login/Login';
+import Cadastro from '../pages/Cadastro/Cadastro'; // <-- IMPORTANTE IMPORTAR AQUI
 import Dashboard from '../pages/Dashboard/Dashboard';
-import Perfil from '../pages/Perfil/Perfil'; // Importamos o Perfil
+import Perfil from '../pages/Perfil/Perfil';
 
 export const rotas = createBrowserRouter([
     {
@@ -14,6 +15,11 @@ export const rotas = createBrowserRouter([
     {
         path: '/login',
         element: <Login />
+    },
+    {
+        // Rota do Cadastro isolada (também sem o Menu superior)
+        path: '/cadastro',
+        element: <Cadastro />
     },
     {
         element: <Layout />,
